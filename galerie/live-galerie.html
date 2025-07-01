@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Galerie – Live Show 04.01.2025</title>
+  <link rel="stylesheet" href="../style.css"/>
+</head>
+<body>
+  <header>
+    <h1 class="logo">Los Trios</h1>
+    <nav aria-label="Hauptnavigation">
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../galerie.html" aria-current="page">Galerie</a></li>
+        <li><a href="../kontakt.html">Kontakt</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="section gallery-section">
+    <h2>Live Show – 04. Januar 2025</h2>
+
+    <!-- Hauptbild mit Untertitel & Text -->
+    <section class="gallery-main">
+      <img src="../img/4.januar/2025-01-04_001.jpg"
+           alt="Los Trios Live Show 04.01.2025 Hauptbild">
+      <h3 class="gallery-subtitle">Los Trios in Action</h3>
+      <p class="gallery-text">
+        Fotos unserer Live-Show am 4. Januar 2025 – klicke auf den Stapel,  
+        um jedes Bild in den Vordergrund zu holen.
+      </p>
+    </section>
+
+    <!-- Klickbarer Foto-Stapel (manuell befüllt) -->
+    <section class="photo-stack">
+      <img src="../img/4.januar/2025-01-04_002.jpg" alt="Los Trios Live Foto 2">
+      <img src="../img/4.januar/2025-01-04_003.jpg" alt="Los Trios Live Foto 3">
+      <img src="../img/4.januar/2025-01-04_004.jpg" alt="Los Trios Live Foto 4">
+      <img src="../img/4.januar/2025-01-04_005.jpg" alt="Los Trios Live Foto 5">
+      <img src="../img/4.januar/2025-01-04_006.jpg" alt="Los Trios Live Foto 6">
+      <!-- Falls du mehr Bilder hast, ergänze hier weitere <img> -->
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Los Trios. Alle Rechte vorbehalten.</p>
+    <p>
+      <a href="https://open.spotify.com/artist/dein-link" target="_blank">▶ Spotify</a> |
+      <a href="https://www.instagram.com/lostrios7/?igsh=NnllNDYzeGNjMXRm#" target="_blank">📷 Instagram</a>
+    </p>
+  </footer>
+
+  <script>
+    // Blätter-Funktion bleibt gleich
+    document.addEventListener('DOMContentLoaded', () => {
+      const stack = document.querySelector('.photo-stack');
+      stack.addEventListener('click', () => {
+        const first = stack.firstElementChild;
+        stack.appendChild(first);
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lyrics – Los Trios</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    /* ----- Album-Liste ----- */
+    .album-list ul {
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .album-list button {
+      background: #1f1f1f;
+      color: #e50914;
+      border: 1px solid #444;
+      padding: 0.75rem 1rem;
+      text-align: left;
+      width: 100%;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+    .album-list button:hover {
+      background: #2a2a2a;
+    }
+
+    /* ----- Track-Liste (versteckt bis Album gewählt) ----- */
+    .album-songs {
+      display: none;
+      margin: 1.5rem 0;
+    }
+    .album-songs.active {
+      display: block;
+    }
+    .song-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .song-list button {
+      background: transparent;
+      color: #f0f0f0;
+      border: none;
+      padding: 0.5rem;
+      text-align: left;
+      cursor: pointer;
+      font-size: 0.95rem;
+      transition: color 0.3s;
+    }
+    .song-list button:hover {
+      color: #e50914;
+    }
+
+    /* ----- Lyrics-Display ----- */
+    .lyrics-display {
+      display: none;
+      margin-top: 2rem;
+      border-top: 1px solid #444;
+      padding-top: 1.5rem;
+    }
+    .lyrics-display.active {
+      display: block;
+    }
+    .lyrics-display h3 {
+      color: #e50914;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+    .lyrics-display .lyrics p {
+      margin-bottom: 0.75rem;
+      line-height: 1.6;
+      white-space: pre-wrap;
+      color: #ddd;
+    }
+
+    /* ----- Responsive ----- */
+    @media (min-width: 600px) {
+      .album-list ul {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+      .album-list button {
+        width: auto;
+        flex: 1;
+      }
+      .song-list {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+      .song-list button {
+        flex: 1 1 calc(50% - 1rem);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1 class="logo"><a href="index.html">Los Trios</a></h1>
+      <nav aria-label="Hauptnavigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="gallery.html">Galerie</a></li>
+          <li><a href="lyrics.html" aria-current="page">Lyrics</a></li>
+          <li><a href="sponsors.html">Partner &amp; Sponsoren</a></li>
+          <li><a href="news.html">Aktuelles</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="section">
+    <h2>Lyrics</h2>
+
+    <!-- Album-Auswahl -->
+  <nav class="album-list">
+    <h3>Alben</h3>
+    <ul>
+      <li>
+        <button data-album="album-1">
+          <img src="img/album/drogs.jpg" alt="Cover: Arbeitstitel (VÖ August 2025)">
+          <span>Arbeitstitel<br><em>Aug 2025</em></span>
+        </button>
+      </li>
+      <!-- Bei mehreren Alben hier analog einfügen -->
+    </ul>
+  </nav>
+
+
+    <!-- Trackliste des gewählten Albums -->
+    <section class="album-songs" id="album-1">
+      <h3>Arbeitstitel</h3>
+      <ul class="song-list">
+        <li><button data-song="song-1">1. Drogs in Mexico</button></li>
+        <li><button data-song="song-2">2. Tequila Love</button></li>
+        <li><button data-song="song-3">3. Gun On The Ground</button></li>
+        <li><button data-song="song-4">4. Fuck Yeah (Original)</button></li>
+        <li><button data-song="song-5">5. Rock Out Loud (Original)</button></li>
+      </ul>
+    </section>
+
+    <!-- Hier erscheinen dann die Lyrics -->
+    <section class="lyrics-display" id="lyrics-display">
+      <h3 id="current-track"></h3>
+      <div class="lyrics" id="lyrics-text"></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Los Trios – alle Rechte vorbehalten</p>
+      <div class="social">
+        <a href="https://open.spotify.com/artist/DEIN_SPOTIFY_ARTIST_ID" target="_blank">▶ Spotify</a>
+        <a href="https://www.instagram.com/lostrios7/?igsh=NnllNDYzeGNjMXRm#" target="_blank">📷 Instagram</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Vorab alle Texte hier definieren:
+    const lyricsData = {
+      "song-1": {
+        title: "1. Drogs in Mexico",
+        lines: [
+          "Verse 1:",
+          "Ich fahr’ durch die Wüste, Sonne brennt so heiß...",
+          "",
+          "Refrain:",
+          "↪ Drogs in Mexico, wir leben den Rausch..."
+        ]
+      },
+      "song-2": {
+        title: "2. Tequila Love",
+        lines: [
+          "Refrain:",
+          "Tequila Love, brennt in meiner Seele..."
+        ]
+      },
+      "song-3": {
+        title: "3. Gun On The Ground",
+        lines: [
+          "Intro", "",
+          "Refrain (4×):",
+          "Put the gun on the ground",
+          "It can change somehow",
+          "Oh,",
+          "You have to try",
+          "",
+          "Vers 1:",
+          "It isn‘t to late to heal your wounds",
+          "Just take the time to rest for a while",
+          "Look what you‘ve almost done",
+          "Even your old time music is gone",
+          "",
+          "Refrain (2×):",
+          "Put the gun on the ground",
+          "It can change somehow",
+          "Oh,",
+          "You have to try",
+          "",
+          "Bridge:",
+          "Ignore the Voices in your Head",
+          "You wanna leave this world behind",
+          "Don‘t let the flowers to wither.",
+          "Break down walls inside your mind",
+          "Break down walls inside your mind",
+          "Break down walls inside your mind",
+          "Break down walls, Break down walls",
+          "Break now",
+          "",
+          "Solo", "",
+          "Refrain (4×):",
+          "Put the gun on the ground",
+          "It can change somehow",
+          "Oh,",
+          "You have to try",
+          "",
+          "Bridge:",
+          "Ignore the Voices in your Head",
+          "You wanna leave this world behind",
+          "Don‘t let the flowers to wither.",
+          "Break down walls inside your mind",
+          "Break down walls inside your mind",
+          "Break down walls inside your mind",
+          "… (Gesang leiser werden → Gitarren Outro)"
+        ]
+      },
+      "song-4": {
+        title: "4. Fuck Yeah (Original)",
+        lines: [
+          "Intro", "",
+          "Vers (4×):",
+          "When you are finally together and nothing seems real",
+          "Is this the pain that we couldn‘t feel",
+          "Then you wake up in this hell you call surreal",
+          "Are we living up here or dying to heal",
+          "",
+          "Chorus (8×):",
+          "(2× 4) Can you believe, we are actually dying",
+          "This is a dream, keep on flying",
+          "On our deaths we will burn in the crowd",
+          "Souls livin‘ the moment when we are loud",
+          "Creatures of the night got nothing to hide",
+          "Lost between dark and light where the time stands…",
+          "",
+          "…still, (2×)",
+          "",
+          "Vers 2 (4×):",
+          "When you finally dead but death keeps you awake",
+          "Now they know, this wasn’t a mistake",
+          "Then look down, see the people who attend",
+          "Do we have to let go, will this ever end?",
+          "",
+          "Chorus (8×):",
+          "(2× 4) Can you believe, we are actually dying",
+          "This is a dream, keep on flying",
+          "On our deaths we will burn in the crowd",
+          "Souls livin‘ the moment when we are loud",
+          "Creatures of the night got nothing to hide",
+          "Lost between dark and light…",
+          "",
+          "Brake (Sprechtext):",
+          "Welcome to the world called hell",
+          "Where you can be dead while playing",
+          "Where you can dream of flying",
+          "Where you are burning to ash",
+          "While souls screaming in your mind",
+          "Between dark and light you can‘t hide",
+          "So I will ask you one question:",
+          "Are you here for fun?",
+          "Fuck Yeah",
+          "So you are here to play rock n‘ roll?",
+          "Fuck Yeah",
+          "",
+          "Solo", "",
+          "Chorus (8×):",
+          "(2× 4) Can you believe, we are actually dying",
+          "This is a dream, keep on flying",
+          "On our deaths we will burn in the crowd",
+          "Souls livin‘ the moment when we are loud",
+          "Creatures of the night got nothing to hide",
+          "Lost between dark and light…"
+        ]
+      },
+      "song-5": {
+        title: "5. Rock Out Loud (Original)",
+        lines: [
+          "Riff (Intro) (nach Schlagzeug 2× dann singen)", "",
+          "Verse 1:", 
+          "In a world that spins too fast,", 
+          "Where dreams of freedom never seem to last.", 
+          "They searched for more than the world could give,", 
+          "Found their escape in a place to live.", "",
+          "Pre-Chorus:", 
+          "The streets were burning, the sky turned grey,", 
+          "But they heard the echo and wouldn't turn away.", 
+          "The guitar screamed, the beat was their goal,", 
+          "No plan, no stop, just the feeling they hold.", "",
+          "Chorus:", 
+          "Now there was a time, where their future begun,", 
+          "But at the same time, their endings were one.", 
+          "So all they were told was, rock‘n‘roll,", 
+          "Now they’re all saying, rock‘n‘roll.", "",
+          "Verse 2:", 
+          "Every step was a risk, their sound was their song,", 
+          "Youth fades away, but the fire stays strong.", 
+          "What remains is the sound, the wind in their hair,", 
+          "They lived for the moment, no matter the dare.", "",
+          "Pre-Chorus:", 
+          "The streets were burning, the sky turned grey,", 
+          "But they heard the echo and wouldn't turn away.", 
+          "The guitar screamed, the beat was their goal,", 
+          "No plan, no stop, just the feeling they hold.", "",
+          "Chorus:", 
+          "Now there was a time, where their future begun,", 
+          "But at the same time, their endings were one.", 
+          "So all they were told was, rock‘n‘roll,", 
+          "Now they’re all saying, rock‘n‘roll.", "",
+          "Solo", "",
+          "Break:", 
+          "Oh-Teil (Schlagzeug, Gesang)", "",
+          "Chorus:", 
+          "Now there was a time, where their future begun,", 
+          "But at the same time, their endings were one.", 
+          "So all they were told was, rock‘n‘roll,", 
+          "Now they’re all saying, rock‘n‘roll."
+        ]
+      }
+    };
+
+    // Elemente
+    const albumButtons = document.querySelectorAll('.album-list button');
+    const albumSection  = document.querySelector('.album-songs');
+    const lyricsSection = document.getElementById('lyrics-display');
+    const titleEl       = document.getElementById('current-track');
+    const textEl        = document.getElementById('lyrics-text');
+
+    // Album öffnen
+    albumButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.album-list button')
+          .forEach(b=> b.classList.remove('active'));
+        btn.classList.add('active');
+        albumSection.classList.add('active');
+        // Lyrics zurücksetzen
+        lyricsSection.classList.remove('active');
+        titleEl.textContent = '';
+        textEl.innerHTML = '';
+      });
+    });
+
+    // Tracks auswählen
+    document.querySelectorAll('.song-list button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const key = btn.getAttribute('data-song');
+        const data = lyricsData[key];
+        // Titel & Lyrics einfügen
+        titleEl.textContent = data.title;
+        textEl.innerHTML = data.lines.map(l=> `<p>${l}</p>`).join('');
+        // Sichtbar machen
+        lyricsSection.classList.add('active');
+        // Track-Button highlight
+        document.querySelectorAll('.song-list button')
+          .forEach(b=> b.classList.remove('active'));
+        btn.classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>

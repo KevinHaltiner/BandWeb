@@ -1,0 +1,775 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Grundstil */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #121212;
+    color: #f0f0f0;
+    line-height: 1.6;
+}
+
+a {
+    color: #e50914;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:focus {
+    outline: 2px dashed #e50914;
+    outline-offset: 4px;
+}
+
+/* Skip-Link */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: #e50914;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    z-index: 1000;
+    transition: top 0.3s;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+/* Navigation */
+header {
+    background: #1a1a1a;
+    padding: 1rem 2rem;
+    border-bottom: 2px solid #e50914;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    list-style: none;
+}
+
+nav a {
+    color: #f0f0f0;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+}
+
+nav a:hover,
+nav a:focus {
+    color: #e50914;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    height: 80vh;
+    background: url('img/bandfoto.jpg') center center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.hero-text {
+    position: relative;
+    text-align: center;
+}
+
+.hero-text h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    letter-spacing: 4px;
+    margin-bottom: 0.5rem;
+}
+
+.hero-text p {
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    font-style: italic;
+    color: #e50914;
+}
+
+/* Sections */
+.section {
+    padding: 4rem 1rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.section h2 {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid #333;
+    padding-bottom: 0.5rem;
+}
+
+/* Über uns: Band-Liste */
+.band-list {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 1.5rem;
+}
+
+/* Grundregel für Abstand vor dem Text */
+.band-list li {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    color: #dddddd;
+}
+
+/* Spezifische Icons pro Rolle */
+.band-list li.guitar::before {
+    content: "🎸";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #e50914;
+}
+
+.band-list li.vocals::before {
+    content: "🎤";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #e50914;
+}
+
+.band-list li.drums::before {
+    content: "🥁";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #e50914;
+}
+
+
+/* Galerie */
+.music-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.gallery-item {
+    background: #1f1f1f;
+    padding: 1rem;
+    border: 1px solid #333;
+    border-radius: 6px;
+    text-align: center;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 0.75rem;
+}
+
+/* Embed Container für Spotify & YouTube */
+.embed-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    /* 16:9 Ratio */
+    height: 0;
+    margin: 1rem 0;
+}
+
+.embed-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* Video-Embed-Fallback */
+.video-embed {
+    margin-top: 1rem;
+    background: #1f1f1f;
+    padding: 1rem;
+    border: 1px solid #333;
+    border-radius: 6px;
+    text-align: center;
+    color: #888;
+}
+
+.video-embed iframe {
+    width: 100%;
+    max-width: 560px;
+    height: 315px;
+    margin: 0 auto;
+}
+
+/* Tourliste */
+.tour-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.tour-list li {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #333;
+}
+
+/* Kontaktformular */
+.contact-form {
+    background: #1f1f1f;
+    padding: 2rem;
+    border-radius: 8px;
+    max-width: 600px;
+    margin: 0 auto;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.contact-form .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: #f0f0f0;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 0.75rem;
+    background: #2a2a2a;
+    border: 1px solid #333;
+    border-radius: 4px;
+    color: #f0f0f0;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #e50914;
+    outline: none;
+}
+
+.contact-form button,
+.contact-form .btn {
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    background: #e50914;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s;
+}
+
+.contact-form button:hover,
+.contact-form button:focus,
+.contact-form .btn:hover,
+.contact-form .btn:focus {
+    background: #ff1a25;
+}
+
+/* Band Grid für Band-Seite */
+.band-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.member-card {
+    background: #1f1f1f;
+    border: 1px solid #333;
+    padding: 1.5rem;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.member-card:hover,
+.member-card:focus-within {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.member-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+}
+
+.member-card h3 {
+    margin-bottom: 0.5rem;
+    color: #e50914;
+}
+
+.member-card p {
+    font-size: 0.95rem;
+    color: #ccc;
+}
+
+/* Footer */
+footer {
+    background: #1a1a1a;
+    text-align: center;
+    padding: 2rem 1rem;
+    border-top: 2px solid #e50914;
+}
+
+footer p {
+    color: #999;
+    font-size: 0.9rem;
+    margin: 0.5rem 0;
+}
+
+/* Responsive Anpassungen */
+@media (max-width: 600px) {
+    .hero {
+        height: 50vh;
+    }
+
+    .section {
+        padding: 2rem 1rem;
+    }
+}
+
+/* Hauptbild + Text */
+.gallery-main img {
+    display: block;
+    max-width: 100%;
+    border-radius: 6px;
+    margin: 0 auto 1rem;
+}
+
+.gallery-main p {
+    text-align: center;
+    color: #ccc;
+    font-size: 1rem;
+    margin-bottom: 2rem;
+}
+
+/* Foto-Stapel */
+.photo-stack {
+    position: relative;
+    width: 300px;
+    /* Breite des Stapels */
+    height: 200px;
+    /* Höhe des Stapels */
+    margin: 0 auto 3rem;
+}
+
+.photo-stack img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    border: 5px solid #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+}
+
+/* Zufällige Rotation und Versatz pro Bild */
+.photo-stack img:nth-child(1) {
+    transform: rotate(-10deg) translate(-20px, -10px);
+    z-index: 6;
+}
+
+.photo-stack img:nth-child(2) {
+    transform: rotate(8deg) translate(15px, -15px);
+    z-index: 5;
+}
+
+.photo-stack img:nth-child(3) {
+    transform: rotate(-5deg) translate(10px, 20px);
+    z-index: 4;
+}
+
+.photo-stack img:nth-child(4) {
+    transform: rotate(12deg) translate(-15px, 15px);
+    z-index: 3;
+}
+
+.photo-stack img:nth-child(5) {
+    transform: rotate(-8deg) translate(20px, -5px);
+    z-index: 2;
+}
+
+.photo-stack img:nth-child(6) {
+    transform: rotate(5deg) translate(-10px, 25px);
+    z-index: 1;
+}
+
+/* Für mehr als 6 Bilder: einfach weiter mit nth-child(7), (8) … */
+/* Header-Logo */
+.logo {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #e50914;
+    margin: 1rem 0 0.5rem;
+}
+
+/* Gallery-Section */
+.gallery-main img {
+    display: block;
+    max-width: 100%;
+    border-radius: 6px;
+    margin: 0 auto;
+}
+
+.gallery-subtitle {
+    text-align: center;
+    font-size: 1.3rem;
+    color: #f0f0f0;
+    margin-top: 0.75rem;
+}
+
+.gallery-text {
+    text-align: center;
+    color: #ccc;
+    font-size: 1rem;
+    margin: 0.5rem auto 2rem;
+    max-width: 600px;
+}
+
+/* Grösserer Foto-Stapel */
+.photo-stack {
+    position: relative;
+    width: 400px;
+    /* erhöhte Breite */
+    height: 300px;
+    /* erhöhte Höhe */
+    margin: 0 auto 3rem;
+    cursor: pointer;
+}
+
+/* Gemeinsames für alle Stapel-Bilder */
+.photo-stack img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    border: 5px solid #fff;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.6);
+    transition: transform 0.3s;
+}
+
+/* Lyrics-Seite */
+.lyrics-list {
+    margin-top: 2rem;
+}
+
+.song {
+    margin-bottom: 2rem;
+}
+
+.song h4 {
+    font-size: 1.2rem;
+    color: #e50914;
+    margin-bottom: 0.5rem;
+}
+
+.song pre {
+    white-space: pre-wrap;
+    font-family: inherit;
+    color: #ddd;
+    background: #1f1f1f;
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+/* Sponsoren-Seite */
+.sponsors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 2rem;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.sponsor-item img {
+    display: block;
+    max-width: 100%;
+    /* entferne oder überschreibe ggf. die Graustufen */
+    filter: none !important;
+    opacity: 1 !important;
+    transition: filter 0.3s, opacity 0.3s, transform 0.3s;
+    transform-origin: center center;
+}
+
+.sponsor-item img:hover {
+    /* optionalen Farb-Hover entfernen, da Logos jetzt farbig sind */
+    /* filter: none; */
+    /* opacity: 1; */
+    transform: scale(1.05);
+}
+
+
+
+/* 1. Fluide Typografie mit clamp() */
+/* Hero-Titel wird zwischen 2.5rem und 4rem skaliert je nach Viewport-Breite */
+.hero-text h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+}
+
+/* Sektionen-Titel zwischen 1.5rem und 2rem */
+.section h2 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+/* Fließtext: min 1rem, max 1.2rem */
+body {
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
+}
+
+/* 2. Grid/Flex-Breakpoints */
+/* Musik-Galerie: ab 480px zwei Spalten, ab 768px drei */
+.music-gallery {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: 1fr;
+}
+
+@media (min-width: 480px) {
+    .music-gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 768px) {
+    .music-gallery {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Band-Grid: ab 600px zwei Spalten, ab 900px drei */
+.band-grid {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: 1fr;
+}
+
+@media (min-width: 600px) {
+    .band-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 900px) {
+    .band-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* 3. Touch-Targets vergrößern */
+/* Alle Links und Buttons mindestens 44×44px */
+a,
+button {
+    padding: 0.75rem 0.5rem;
+    /* oben/unten 12px+, links/rechts 8px+ */
+}
+
+nav a {
+    padding: 0.75rem 1rem;
+}
+
+/* Formular-Buttons */
+.contact-form .btn {
+    padding: 0.75rem 1.5rem;
+}
+
+/* 4. Optimierte Abstände mit clamp() */
+/* Sektionen-Padding: nie weniger als 1.5rem, ideal 5vw, nie mehr als 4rem */
+.section {
+    padding: clamp(1.5rem, 5vw, 4rem) clamp(1rem, 4vw, 2rem);
+}
+
+/* 5. Responsive Videos & Embeds (falls nicht schon geschehen) */
+.embed-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+}
+
+.embed-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* Fokus-Outline überall entfernen */
+a:focus,
+button:focus,
+input:focus,
+textarea:focus,
+img:focus {
+    outline: none !important;
+}
+
+/* (Optional) Auf Mobilgeräten das Tap-Highlight abschalten */
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Hero-CTA-Buttons */
+.hero-cta {
+    margin-top: 1.5rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.btn {
+    background: #e50914;
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: background 0.3s;
+}
+
+.btn:hover {
+    background: #ff1a25;
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid #e50914;
+    color: #e50914;
+}
+
+.btn-outline:hover {
+    background: #e50914;
+    color: #fff;
+}
+
+/* Tour-Preview */
+.tour-preview {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+@media (min-width: 600px) {
+    .tour-preview {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.tour-card {
+    background: #1f1f1f;
+    padding: 1rem;
+    border-radius: 6px;
+    text-align: center;
+    border: 1px solid #333;
+}
+
+.tour-card time {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #e50914;
+}
+
+.btn-small {
+    display: inline-block;
+    margin-top: 0.5rem;
+    background: #e50914;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.8rem;
+}
+
+.more-link {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.more-link a {
+    color: #e50914;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* News-Teaser */
+.news-teaser {
+    list-style: none;
+    margin-top: 1rem;
+    padding-left: 0;
+}
+
+.news-teaser li {
+    margin-bottom: 0.75rem;
+}
+
+/* Newsletter */
+.newsletter-form {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+.newsletter-form input {
+    padding: 0.75rem 1rem;
+    border: 1px solid #444;
+    border-radius: 5px;
+    background: #2a2a2a;
+    color: #f0f0f0;
+}
+
+.newsletter-form button {
+    background: #e50914;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 0.75rem 1.5rem;
+    cursor: pointer;
+}
+
+/* Cover auf max. 200px Höhe begrenzen und zentrieren */
+.album-list button img {
+    display: block;
+    width: auto;
+    /* Bild behält sein Seitenverhältnis */
+    max-width: 100%;
+    /* nie breiter als der Button */
+    max-height: 200px;
+    /* maximale Höhe */
+    margin: 0 auto 0.5rem;
+    /* zentriert und mit Abstand nach unten */
+    object-fit: cover;
+    /* bei Bedarf Teile abschneiden, damit es nie verzerrt */
+}
