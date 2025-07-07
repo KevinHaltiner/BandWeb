@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Los Trios</title>
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;600&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/layout.css">
+<link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container header-flex">
+      <h1 class="logo">Los Trios</h1>
+      <!-- Hamburger Toggle -->
+      <div class="nav-toggle" aria-label="Menü öffnen"></div>
+      <nav>
+        <ul class="nav-list">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">Über Uns</a></li>
+          <li><a href="#music">Musik</a></li>
+          <li><a href="#tour">Tour</a></li>
+          <li><a href="#contact">Kontakt</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="home" class="hero">
+    <img src="welcome.jpg" alt="Los Trios" class="hero-bg">
+    <div class="hero-text container">
+      <h2>Los Trios</h2>
+      <p>Akustik trifft Moderne – Erlebe den Sound, der verbindet.</p>
+      <a href="#music" class="btn-primary">Jetzt reinhören</a>
+    </div>
+  </section>
+
+  <!-- ... weitere Sektionen ... -->
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 Los Trios</p>
+    </div>
+  </footer>
+
+  <!-- Skript für toggles Navigation -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const toggle = document.querySelector('.nav-toggle');
+      const header = document.querySelector('header');
+      toggle.addEventListener('click', function() {
+        header.classList.toggle('open');
+      });
+    });
+  </script>
+</body>
+</html>
