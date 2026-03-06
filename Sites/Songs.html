@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/songs-style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Creepster&display=swap" rel="stylesheet">
+    <title>Los Trios - Albums & Songs</title>
+</head>
+<body>
+     <!-- Navigation Bar -->
+    <div id="navbar"></div>
+
+    <!-- ALBUMS OVERVIEW SECTION -->
+    <div class="albums-section" id="albums-overview">
+        <div class="albums-container">
+            <!-- Header -->
+            <div class="albums-header">
+                <h1 class="albums-title">Our Albums</h1>
+                <div class="albums-subtitle">Enter the Dark Sound of Los Trios</div>
+                <div class="header-line"></div>
+            </div>
+
+            <!-- Albums Grid -->
+            <div class="albums-grid">
+                
+                <!-- Album 1 - Overdose of Everything -->
+                <div class="album-card" data-album="overdose">
+                    <div class="album-cover">
+                        <div class="album-placeholder">
+                            <img src="../Img/Songs/Overdoese_of_Everything.jpeg" alt="Overdose of Everything Album Cover" class="album-cover-img">
+                            <div class="album-year">2025</div>
+                        </div>
+                        <div class="album-overlay">
+                            <div class="play-icon">▶</div>
+                        </div>
+                    </div>
+                    <div class="album-info">
+                        <h2 class="album-name">Overdose of Everything</h2>
+                        <div class="album-meta">
+                            <span class="album-songs">5 Songs</span>
+                            <span class="album-duration">14:13</span>
+                        </div>
+                        <div class="album-genre"> k.a wie die 3 brüdere heissend </div>
+                    </div>
+                </div>
+
+                <!-- Album 2 - Placeholder -->
+                <div class="album-card" data-album="shadows">
+                    <div class="album-cover">
+                        <div class="album-placeholder">
+                            <div class="vinyl-icon">💿</div>
+                            <div class="album-year">2026</div>
+                            <div class="coming-soon-badge">Coming Soon</div>
+                        </div>
+                        <div class="album-overlay">
+                        </div>
+                    </div>
+                    <div class="album-info">
+                        <h2 class="album-name">Kill the Beast</h2>
+                        <div class="album-meta">
+                            <span class="album-songs">5 Songs</span>
+                            <span class="album-duration"> - </span>
+                        </div>
+                        <div class="album-genre"> Chubacabra </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- ALBUM DETAIL VIEW -->
+    <div class="album-detail-view" id="album-detail" style="display: none;">
+        <div class="detail-container">
+            
+            <!-- Back Button -->
+            <button class="back-button" id="back-to-albums">
+                <span class="back-arrow">←</span>
+                <span class="back-text">Back to Albums</span>
+            </button>
+
+            <!-- Album Header -->
+            <div class="detail-header">
+                <div class="detail-cover">
+                    <div class="detail-cover-placeholder">
+<div>
+    <img src="../Img/Songs/Overdoese_of_Everything.jpeg" alt="Overdose of Everything Album Cover" class="album-cover-img">
+</div>
+                    </div>
+                </div>
+                <div class="detail-info">
+                    <div class="detail-genre" id="detail-genre">Gothic Metal</div>
+                    <h1 class="detail-album-title" id="detail-title">Album Name</h1>
+                    <div class="detail-meta">
+                        <span class="detail-year" id="detail-year">2025</span>
+                        <span class="detail-separator">•</span>
+                        <span class="detail-songs" id="detail-songs">12 Songs</span>
+                        <span class="detail-separator">•</span>
+                        <span class="detail-duration" id="detail-duration">48:32</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Album Story -->
+            <div class="album-story">
+                <h2 class="story-title">The Story</h2>
+                <div class="header-line"></div>
+                <p class="story-text" id="story-text">
+                    Album story will appear here...
+                </p>
+            </div>
+
+            <!-- Tracklist -->
+            <div class="tracklist-section">
+                <h2 class="tracklist-title">Tracklist</h2>
+                <div class="header-line"></div>
+                
+                <div class="tracklist" id="tracklist">
+                    <!-- Tracks will be dynamically inserted here -->
+                </div>
+
+                <!-- Spotify Integration Placeholder -->
+<!-- Spotify Integration -->
+<div class="spotify-section">
+    <h3 class="spotify-title">🎵 Listen on Spotify</h3>
+    <div class="spotify-glow-wrapper">
+        <div id="spotify-embed-container"></div>
+    </div>
+</div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="../scripts/songs-script.js"></script>
+
+
+  
+    <div id="footer"></div>
+
+    <script src="/scripts/layout.js"></script>
+</body>
+</html>
